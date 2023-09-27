@@ -140,6 +140,11 @@ dependencies {
     // PROJECT MMO ------
     implementation fg.deobf("curse.maven:pmmo-353935:4760935")
 
+    // IRONS SPELLS N SPELLBOOKS **********************************************************************************
+    implementation fg.deobf("io.redspace.ironsspellbooks:irons_spellbooks:${minecraft_version}-${irons_spells_version}"){
+        transitive = false
+    }
+
     // GECKOLIB ***************************************************************************************************
     implementation fg.deobf("software.bernie.geckolib:geckolib-forge-${geckolib_version}")
 
