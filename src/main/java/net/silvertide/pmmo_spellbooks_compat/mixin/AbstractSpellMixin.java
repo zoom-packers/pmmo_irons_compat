@@ -15,8 +15,7 @@ public abstract class AbstractSpellMixin {
     @Inject(method = "attemptInitiateCast", at = @At("HEAD"), cancellable = true, remap = false)
     public void attemptInitiateCast(ItemStack stack, int spellLevel, Level level, Player player, CastSource castSource, boolean triggerCooldown, CallbackInfoReturnable<Boolean> cir) {
         if(!level.isClientSide) {
-            player.sendSystemMessage(Component.literal("Failed the cast brah."));
-            cir.setReturnValue(false);
+            player.sendSystemMessage(Component.literal("Check req here."));
         }
     }
 }

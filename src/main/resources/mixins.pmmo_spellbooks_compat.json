@@ -5,7 +5,10 @@
   "refmap": "pmmo_spellbooks_compat.refmap.json",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "AbstractSpellMixin"
+    "AbstractSpellMixin",
+    "HealingAOEMixin",
+    "BlessingOfLifeMixin",
+    "FortifyMixin"
   ],
   "server": [],
   "client": [],

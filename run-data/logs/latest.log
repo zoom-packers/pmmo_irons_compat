@@ -1,30 +1,91 @@
-[27Sep2023 10:57:47.408] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgedatauserdev, --assetIndex, 5, --assetsDir, /Users/nate/.gradle/caches/forge_gradle/assets, --gameDir, ., --fml.forgeVersion, 47.1.43, --fml.mcVersion, 1.20.1, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20230612.114412, --mod, pmmo_irons_compat, --all, --output, /Users/nate/Workspace/minecraft/personal/1.20.1/pmmo_irons_spellbooks_compat/src/generated/resources, --existing, /Users/nate/Workspace/minecraft/personal/1.20.1/pmmo_irons_spellbooks_compat/src/main/resources]
-[27Sep2023 10:57:47.410] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.0.10+10.0.10+main.22f00f84 starting: java version 17.0.7 by Eclipse Adoptium; OS Mac OS X arch aarch64 version 13.4.1
-[27Sep2023 10:57:47.448] [main/WARN] [net.minecraftforge.fml.loading.FMLConfig/CORE]: Configuration file /Users/nate/Workspace/minecraft/personal/1.20.1/pmmo_irons_spellbooks_compat/run-data/config/fml.toml is not correct. Correcting
-[27Sep2023 10:57:47.449] [main/INFO] [net.minecraftforge.fml.loading.FMLConfig/CORE]: Incorrect key [earlyWindowSkipGLVersions] was corrected from null to []
-[27Sep2023 10:57:47.449] [main/INFO] [net.minecraftforge.fml.loading.FMLConfig/CORE]: Incorrect key [earlyWindowSquir] was corrected from null to false
-[27Sep2023 10:57:47.456] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgedatauserdev
-[27Sep2023 10:57:47.475] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/Users/nate/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/9d1c0c3a304ae6697ecd477218fa61b850bf57fc/mixin-0.8.5.jar%23125!/ Service=ModLauncher Env=CLIENT
-[27Sep2023 10:57:47.738] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file /Users/nate/.gradle/caches/modules-2/files-2.1/net.minecraftforge/javafmllanguage/1.20.1-47.1.43/12e5cc2b50158bec903b4d511dfa0a0feb3209ab/javafmllanguage-1.20.1-47.1.43.jar is missing mods.toml file
-[27Sep2023 10:57:47.738] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file /Users/nate/.gradle/caches/modules-2/files-2.1/net.minecraftforge/lowcodelanguage/1.20.1-47.1.43/e25689773289037192545f72e23dff4d5023fe62/lowcodelanguage-1.20.1-47.1.43.jar is missing mods.toml file
-[27Sep2023 10:57:47.739] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file /Users/nate/.gradle/caches/modules-2/files-2.1/net.minecraftforge/mclanguage/1.20.1-47.1.43/e6f54a896fcb804058c3c1713db61c205cb4b002/mclanguage-1.20.1-47.1.43.jar is missing mods.toml file
-[27Sep2023 10:57:47.739] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file /Users/nate/.gradle/caches/modules-2/files-2.1/net.minecraftforge/fmlcore/1.20.1-47.1.43/f3f16308ded6e5e44588520dcdb767607f4ccafa/fmlcore-1.20.1-47.1.43.jar is missing mods.toml file
-[27Sep2023 10:57:47.785] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: No dependencies to load found. Skipping!
-[27Sep2023 10:57:48.364] [main/INFO] [mixin/]: Compatibility level set to JAVA_17
-[27Sep2023 10:57:48.370] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgedatauserdev' with arguments [--gameDir, ., --assetsDir, /Users/nate/.gradle/caches/forge_gradle/assets, --assetIndex, 5, --mod, pmmo_irons_compat, --all, --output, /Users/nate/Workspace/minecraft/personal/1.20.1/pmmo_irons_spellbooks_compat/src/generated/resources, --existing, /Users/nate/Workspace/minecraft/personal/1.20.1/pmmo_irons_spellbooks_compat/src/main/resources]
-[27Sep2023 10:57:48.498] [main/INFO] [mixin/]: Remapping refMap caelus.refmap.json using /Users/nate/Workspace/minecraft/personal/1.20.1/pmmo_irons_spellbooks_compat/build/createSrgToMcp/output.srg
-[27Sep2023 10:57:48.499] [main/INFO] [mixin/]: Remapping refMap curios.refmap.json using /Users/nate/Workspace/minecraft/personal/1.20.1/pmmo_irons_spellbooks_compat/build/createSrgToMcp/output.srg
-[27Sep2023 10:57:48.499] [main/INFO] [mixin/]: Remapping refMap patchouli.refmap.json using /Users/nate/Workspace/minecraft/personal/1.20.1/pmmo_irons_spellbooks_compat/build/createSrgToMcp/output.srg
-[27Sep2023 10:57:48.499] [main/INFO] [mixin/]: Remapping refMap geckolib.refmap.json using /Users/nate/Workspace/minecraft/personal/1.20.1/pmmo_irons_spellbooks_compat/build/createSrgToMcp/output.srg
-[27Sep2023 10:57:48.500] [main/INFO] [mixin/]: Remapping refMap pmmo.refmap.json using /Users/nate/Workspace/minecraft/personal/1.20.1/pmmo_irons_spellbooks_compat/build/createSrgToMcp/output.srg
-[27Sep2023 10:57:48.505] [main/INFO] [mixin/]: Remapping refMap player-animation-lib-minecraft_common-refmap.json using /Users/nate/Workspace/minecraft/personal/1.20.1/pmmo_irons_spellbooks_compat/build/createSrgToMcp/output.srg
-[27Sep2023 10:57:48.769] [main/INFO] [net.minecraftforge.data.loading.DatagenModLoader/]: Initializing Data Gatherer for mods [pmmo_irons_compat]
-[27Sep2023 10:57:50.816] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 47.1.43, for MC 1.20.1 with MCP 20230612.114412
-[27Sep2023 10:57:50.819] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v47.1.43 Initialized
-[27Sep2023 10:57:50.894] [modloading-worker-0/WARN] [software.bernie.geckolib.GeckoLib/]: Minecraft.getInstance() was null, could not register reload listeners
-[27Sep2023 10:57:50.917] [modloading-worker-0/INFO] [mezz.jei.library.load.PluginCaller/]: Sending ConfigManager...
-[27Sep2023 10:57:50.947] [modloading-worker-0/INFO] [mezz.jei.library.load.PluginCaller/]: Sending ConfigManager took 30.04 ms
-[27Sep2023 10:57:51.073] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/Users/nate/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.1.43_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.1.43_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23184!/assets/.mcassetsroot' uses unexpected schema
-[27Sep2023 10:57:51.074] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/Users/nate/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.1.43_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.1.43_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23184!/data/.mcassetsroot' uses unexpected schema
-[27Sep2023 10:57:51.115] [main/INFO] [net.minecraft.data.DataGenerator/]: All providers took: 0 ms
-[27Sep2023 10:57:51.116] [main/INFO] [net.minecraft.data.HashCache/]: Caching: total files: 0, old count: 0, new count: 1, removed stale: 0, written: 0
+[27Sep2023 20:21:25.302] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgedatauserdev, --assetIndex, 5, --assetsDir, /Users/nate/.gradle/caches/forge_gradle/assets, --gameDir, ., --fml.forgeVersion, 47.1.43, --fml.mcVersion, 1.20.1, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20230612.114412, --mod, pmmo_spellbooks_compat, --all, --output, /Users/nate/Workspace/minecraft/personal/1.20.1/pmmo_irons_spellbooks_compat/src/generated/resources, --existing, /Users/nate/Workspace/minecraft/personal/1.20.1/pmmo_irons_spellbooks_compat/src/main/resources, --mixin.config, mixins.pmmo_spellbooks_compat.json]
+[27Sep2023 20:21:25.304] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.0.10+10.0.10+main.22f00f84 starting: java version 17.0.7 by Eclipse Adoptium; OS Mac OS X arch aarch64 version 13.4.1
+[27Sep2023 20:21:25.354] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgedatauserdev
+[27Sep2023 20:21:25.376] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/Users/nate/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/9d1c0c3a304ae6697ecd477218fa61b850bf57fc/mixin-0.8.5.jar%23125!/ Service=ModLauncher Env=CLIENT
+[27Sep2023 20:21:25.561] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file /Users/nate/.gradle/caches/modules-2/files-2.1/net.minecraftforge/javafmllanguage/1.20.1-47.1.43/12e5cc2b50158bec903b4d511dfa0a0feb3209ab/javafmllanguage-1.20.1-47.1.43.jar is missing mods.toml file
+[27Sep2023 20:21:25.562] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file /Users/nate/.gradle/caches/modules-2/files-2.1/net.minecraftforge/lowcodelanguage/1.20.1-47.1.43/e25689773289037192545f72e23dff4d5023fe62/lowcodelanguage-1.20.1-47.1.43.jar is missing mods.toml file
+[27Sep2023 20:21:25.563] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file /Users/nate/.gradle/caches/modules-2/files-2.1/net.minecraftforge/mclanguage/1.20.1-47.1.43/e6f54a896fcb804058c3c1713db61c205cb4b002/mclanguage-1.20.1-47.1.43.jar is missing mods.toml file
+[27Sep2023 20:21:25.563] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file /Users/nate/.gradle/caches/modules-2/files-2.1/net.minecraftforge/fmlcore/1.20.1-47.1.43/f3f16308ded6e5e44588520dcdb767607f4ccafa/fmlcore-1.20.1-47.1.43.jar is missing mods.toml file
+[27Sep2023 20:21:25.623] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: No dependencies to load found. Skipping!
+[27Sep2023 20:21:26.228] [main/WARN] [mixin/]: Compatibility level JAVA_17 specified by mixins.pmmo_spellbooks_compat.json is higher than the maximum level supported by this version of mixin (JAVA_13).
+[27Sep2023 20:21:26.228] [main/INFO] [mixin/]: Compatibility level set to JAVA_17
+[27Sep2023 20:21:26.236] [main/WARN] [mixin/]: Compatibility level JAVA_16 specified by playerAnimator-common.mixins.json is higher than the maximum level supported by this version of mixin (JAVA_13).
+[27Sep2023 20:21:26.237] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgedatauserdev' with arguments [--gameDir, ., --assetsDir, /Users/nate/.gradle/caches/forge_gradle/assets, --assetIndex, 5, --mod, pmmo_spellbooks_compat, --all, --output, /Users/nate/Workspace/minecraft/personal/1.20.1/pmmo_irons_spellbooks_compat/src/generated/resources, --existing, /Users/nate/Workspace/minecraft/personal/1.20.1/pmmo_irons_spellbooks_compat/src/main/resources]
+[27Sep2023 20:21:26.247] [main/INFO] [mixin/]: Attempting to load Fernflower decompiler (Threaded mode)
+[27Sep2023 20:21:26.248] [main/INFO] [mixin/]: Fernflower could not be loaded, exported classes will not be decompiled. NoClassDefFoundError: org/jetbrains/java/decompiler/main/extern/IResultSaver
+[27Sep2023 20:21:26.250] [main/INFO] [mixin/]: Preparing mixins for MixinEnvironment[DEFAULT]
+[27Sep2023 20:21:26.250] [main/INFO] [mixin/]: Selecting config mixins.pmmo_spellbooks_compat.json
+[27Sep2023 20:21:26.252] [main/WARN] [mixin/]: Reference map 'pmmo_spellbooks_compat.refmap.json' for mixins.pmmo_spellbooks_compat.json could not be read. If this is a development environment you can ignore this message
+[27Sep2023 20:21:26.252] [main/INFO] [mixin/]: Selecting config mixins.irons_spellbooks.json
+[27Sep2023 20:21:26.408] [main/INFO] [mixin/]: Remapping refMap irons_spellbooks.refmap.json using /Users/nate/Workspace/minecraft/personal/1.20.1/pmmo_irons_spellbooks_compat/build/createSrgToMcp/output.srg
+[27Sep2023 20:21:26.408] [main/INFO] [mixin/]: Selecting config caelus.mixins.json
+[27Sep2023 20:21:26.409] [main/INFO] [mixin/]: Remapping refMap caelus.refmap.json using /Users/nate/Workspace/minecraft/personal/1.20.1/pmmo_irons_spellbooks_compat/build/createSrgToMcp/output.srg
+[27Sep2023 20:21:26.409] [main/INFO] [mixin/]: Selecting config curios.mixins.json
+[27Sep2023 20:21:26.409] [main/INFO] [mixin/]: Remapping refMap curios.refmap.json using /Users/nate/Workspace/minecraft/personal/1.20.1/pmmo_irons_spellbooks_compat/build/createSrgToMcp/output.srg
+[27Sep2023 20:21:26.409] [main/INFO] [mixin/]: Selecting config patchouli_xplat.mixins.json
+[27Sep2023 20:21:26.410] [main/INFO] [mixin/]: Remapping refMap patchouli.refmap.json using /Users/nate/Workspace/minecraft/personal/1.20.1/pmmo_irons_spellbooks_compat/build/createSrgToMcp/output.srg
+[27Sep2023 20:21:26.410] [main/INFO] [mixin/]: Selecting config geckolib.mixins.json
+[27Sep2023 20:21:26.410] [main/INFO] [mixin/]: Remapping refMap geckolib.refmap.json using /Users/nate/Workspace/minecraft/personal/1.20.1/pmmo_irons_spellbooks_compat/build/createSrgToMcp/output.srg
+[27Sep2023 20:21:26.410] [main/INFO] [mixin/]: Selecting config pmmo.mixins.json
+[27Sep2023 20:21:26.410] [main/INFO] [mixin/]: Remapping refMap pmmo.refmap.json using /Users/nate/Workspace/minecraft/personal/1.20.1/pmmo_irons_spellbooks_compat/build/createSrgToMcp/output.srg
+[27Sep2023 20:21:26.411] [main/INFO] [mixin/]: Selecting config playerAnimator-common.mixins.json
+[27Sep2023 20:21:26.412] [main/INFO] [mixin/]: Remapping refMap player-animation-lib-minecraft_common-refmap.json using /Users/nate/Workspace/minecraft/personal/1.20.1/pmmo_irons_spellbooks_compat/build/createSrgToMcp/output.srg
+[27Sep2023 20:21:26.412] [main/INFO] [mixin/]: Preparing mixins.pmmo_spellbooks_compat.json (2)
+[27Sep2023 20:21:26.426] [main/INFO] [mixin/]: Preparing mixins.irons_spellbooks.json (14)
+[27Sep2023 20:21:26.483] [main/INFO] [mixin/]: Preparing caelus.mixins.json (4)
+[27Sep2023 20:21:26.484] [main/INFO] [mixin/]: Preparing curios.mixins.json (6)
+[27Sep2023 20:21:26.488] [main/INFO] [mixin/]: Preparing patchouli_xplat.mixins.json (10)
+[27Sep2023 20:21:26.506] [main/INFO] [mixin/]: Preparing geckolib.mixins.json (1)
+[27Sep2023 20:21:26.508] [main/INFO] [mixin/]: Preparing pmmo.mixins.json (3)
+[27Sep2023 20:21:26.512] [main/INFO] [mixin/]: Preparing playerAnimator-common.mixins.json (14)
+[27Sep2023 20:21:26.555] [main/INFO] [mixin/]: Prepared 52 mixins in 0.305 sec (5.9ms avg) (0ms load, 0ms transform, 0ms plugin)
+[27Sep2023 20:21:26.662] [main/INFO] [net.minecraftforge.data.loading.DatagenModLoader/]: Initializing Data Gatherer for mods [pmmo_spellbooks_compat]
+[27Sep2023 20:21:26.715] [main/INFO] [mixin/]: Mixing EntityMixin from mixins.irons_spellbooks.json into net.minecraft.world.entity.Entity
+[27Sep2023 20:21:26.722] [main/INFO] [mixin/]: Mixing AccessorEntity from curios.mixins.json into net.minecraft.world.entity.Entity
+[27Sep2023 20:21:26.796] [main/INFO] [mixin/]: Mixing LivingEntityMixin from mixins.irons_spellbooks.json into net.minecraft.world.entity.LivingEntity
+[27Sep2023 20:21:26.797] [main/INFO] [mixin/]: Mixing MixinLivingEntity from caelus.mixins.json into net.minecraft.world.entity.LivingEntity
+[27Sep2023 20:21:26.798] [main/INFO] [mixin/]: Mixing MixinLivingEntity from curios.mixins.json into net.minecraft.world.entity.LivingEntity
+[27Sep2023 20:21:26.922] [main/INFO] [mixin/]: Mixing ServerLevelMixin from pmmo.mixins.json into net.minecraft.world.level.Level
+[27Sep2023 20:21:26.922] [main/INFO] [mixin/]: Renaming synthetic method lambda$execute$0(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/Level;Lnet/minecraft/world/level/block/state/BlockState;Lharmonised/pmmo/storage/IChunkData;)V to md8ede48$lambda$execute$0$0 in pmmo.mixins.json:ServerLevelMixin
+[27Sep2023 20:21:26.962] [main/INFO] [mixin/]: Mixing PlayerEntityMixin from playerAnimator-common.mixins.json into net.minecraft.world.entity.player.Player
+[27Sep2023 20:21:26.962] [main/WARN] [mixin/]: playerAnimator-common.mixins.json:PlayerEntityMixin: Class version 61 required is higher than the class version supported by the current version of Mixin (JAVA_16 supports class version 60)
+[27Sep2023 20:21:26.992] [main/INFO] [mixin/]: Mixing ItemMixin from mixins.irons_spellbooks.json into net.minecraft.world.item.Item
+[27Sep2023 20:21:27.208] [main/INFO] [mixin/]: Mixing MixinPowderSnowBlock from curios.mixins.json into net.minecraft.world.level.block.PowderSnowBlock
+[27Sep2023 20:21:27.422] [main/INFO] [mixin/]: Mixing AbstractFurnaceTileEntityShrinkMixin from pmmo.mixins.json into net.minecraft.world.level.block.entity.AbstractFurnaceBlockEntity
+[27Sep2023 20:21:27.482] [main/INFO] [mixin/]: Mixing EnchantApplyMixin from pmmo.mixins.json into net.minecraft.world.inventory.EnchantmentMenu
+[27Sep2023 20:21:27.734] [main/INFO] [mixin/]: Mixing MixinShearsItem from curios.mixins.json into net.minecraft.world.item.ShearsItem
+[27Sep2023 20:21:27.750] [main/INFO] [mixin/]: Mixing TridentItemMixin from mixins.irons_spellbooks.json into net.minecraft.world.item.TridentItem
+[27Sep2023 20:21:28.314] [main/INFO] [mixin/]: Mixing MixinApplyBonusCount from curios.mixins.json into net.minecraft.world.level.storage.loot.functions.ApplyBonusCount
+[27Sep2023 20:21:28.584] [modloading-worker-0/INFO] [mixin/]: Mixing MixinCaelusApi from caelus.mixins.json into top.theillusivec4.caelus.api.CaelusApi
+[27Sep2023 20:21:28.598] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 47.1.43, for MC 1.20.1 with MCP 20230612.114412
+[27Sep2023 20:21:28.598] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v47.1.43 Initialized
+[27Sep2023 20:21:28.600] [modloading-worker-0/INFO] [mixin/]: Mixing client.AccessorScreen from patchouli_xplat.mixins.json into net.minecraft.client.gui.screens.Screen
+[27Sep2023 20:21:28.612] [modloading-worker-0/INFO] [mixin/]: Mixing EntityRendererMixin from mixins.irons_spellbooks.json into net.minecraft.client.renderer.entity.EntityRenderer
+[27Sep2023 20:21:28.617] [modloading-worker-0/INFO] [mixin/]: Mixing firstPerson.LivingEntityRendererMixin from playerAnimator-common.mixins.json into net.minecraft.client.renderer.entity.LivingEntityRenderer
+[27Sep2023 20:21:28.617] [modloading-worker-0/INFO] [mixin/]: Renaming synthetic method lambda$filterLayers$0(Ljava/lang/Object;)Z to md8ede48$lambda$filterLayers$0$0 in playerAnimator-common.mixins.json:firstPerson.LivingEntityRendererMixin
+[27Sep2023 20:21:28.630] [modloading-worker-0/INFO] [mixin/]: Mixing FeatureRendererMixin from playerAnimator-common.mixins.json into net.minecraft.client.renderer.entity.layers.RenderLayer
+[27Sep2023 20:21:28.635] [modloading-worker-0/INFO] [mixin/]: Mixing AbstractSpellMixin from mixins.pmmo_spellbooks_compat.json into io.redspace.ironsspellbooks.api.spells.AbstractSpell
+[27Sep2023 20:21:28.637] [modloading-worker-0/INFO] [mixin/]: Mixing GuiMixin from mixins.irons_spellbooks.json into net.minecraft.client.gui.Gui
+[27Sep2023 20:21:28.649] [modloading-worker-0/INFO] [mixin/]: Mixing client.AccessorKeyMapping from patchouli_xplat.mixins.json into net.minecraft.client.KeyMapping
+[27Sep2023 20:21:28.649] [modloading-worker-0/INFO] [mixin/]: Renaming @Accessor method getAllKeyMappings()Ljava/util/Map; to getAllKeyMappings_$md$8ede48$0 in patchouli_xplat.mixins.json:client.AccessorKeyMapping
+[27Sep2023 20:21:28.656] [modloading-worker-0/INFO] [mixin/]: Mixing LocalPlayerMixin from mixins.irons_spellbooks.json into net.minecraft.client.player.LocalPlayer
+[27Sep2023 20:21:28.656] [modloading-worker-0/INFO] [mixin/]: Mixing MixinLocalPlayer from caelus.mixins.json into net.minecraft.client.player.LocalPlayer
+[27Sep2023 20:21:28.674] [modloading-worker-0/INFO] [mixin/]: Mixing AbstractClientPlayerMixin from mixins.irons_spellbooks.json into net.minecraft.client.player.AbstractClientPlayer
+[27Sep2023 20:21:28.683] [modloading-worker-0/INFO] [mixin/]: Mixing CloudOfRegenerationMixin from mixins.pmmo_spellbooks_compat.json into io.redspace.ironsspellbooks.spells.holy.CloudOfRegenerationSpell
+[27Sep2023 20:21:28.685] [modloading-worker-0/INFO] [mixin/]: Mixing client.MixinInventoryScreen from patchouli_xplat.mixins.json into net.minecraft.client.gui.screens.inventory.InventoryScreen
+[27Sep2023 20:21:28.708] [modloading-worker-0/WARN] [software.bernie.geckolib.GeckoLib/]: Minecraft.getInstance() was null, could not register reload listeners
+[27Sep2023 20:21:28.741] [modloading-worker-0/INFO] [mezz.jei.library.load.PluginCaller/]: Sending ConfigManager...
+[27Sep2023 20:21:28.742] [modloading-worker-0/INFO] [mixin/]: Mixing client.MixinLevelRenderer from patchouli_xplat.mixins.json into net.minecraft.client.renderer.LevelRenderer
+[27Sep2023 20:21:28.743] [modloading-worker-0/INFO] [mixin/]: Mixing firstPerson.LevelRendererMixin from playerAnimator-common.mixins.json into net.minecraft.client.renderer.LevelRenderer
+[27Sep2023 20:21:28.743] [modloading-worker-0/INFO] [mezz.jei.library.load.PluginCaller/]: Sending ConfigManager took 904.8 μs
+[27Sep2023 20:21:28.775] [modloading-worker-0/INFO] [mixin/]: Mixing firstPerson.CameraAccessor from playerAnimator-common.mixins.json into net.minecraft.client.Camera
+[27Sep2023 20:21:28.781] [modloading-worker-0/INFO] [mixin/]: Mixing ItemRendererMixin from mixins.irons_spellbooks.json into net.minecraft.client.gui.GuiGraphics
+[27Sep2023 20:21:28.898] [main/INFO] [mixin/]: Mixing BipedEntityModelMixin from playerAnimator-common.mixins.json into net.minecraft.client.model.HumanoidModel
+[27Sep2023 20:21:28.899] [main/INFO] [mixin/]: Renaming synthetic method lambda$renderToBuffer$3(Lcom/mojang/blaze3d/vertex/PoseStack;Lcom/mojang/blaze3d/vertex/VertexConsumer;IIFFFFLnet/minecraft/client/model/geom/ModelPart;)V to md8ede48$lambda$renderToBuffer$3$0 in playerAnimator-common.mixins.json:BipedEntityModelMixin
+[27Sep2023 20:21:28.899] [main/INFO] [mixin/]: Renaming synthetic method lambda$renderToBuffer$2(Lcom/mojang/blaze3d/vertex/PoseStack;Lcom/mojang/blaze3d/vertex/VertexConsumer;IIFFFFLnet/minecraft/client/model/geom/ModelPart;)V to md8ede48$lambda$renderToBuffer$2$1 in playerAnimator-common.mixins.json:BipedEntityModelMixin
+[27Sep2023 20:21:28.899] [main/INFO] [mixin/]: Renaming synthetic method lambda$renderToBuffer$1(Lcom/mojang/blaze3d/vertex/PoseStack;Lcom/mojang/blaze3d/vertex/VertexConsumer;IIFFFFLnet/minecraft/client/model/geom/ModelPart;)V to md8ede48$lambda$renderToBuffer$1$2 in playerAnimator-common.mixins.json:BipedEntityModelMixin
+[27Sep2023 20:21:28.900] [main/INFO] [mixin/]: Renaming synthetic method lambda$renderToBuffer$0(Lcom/mojang/blaze3d/vertex/PoseStack;Lcom/mojang/blaze3d/vertex/VertexConsumer;IIFFFFLnet/minecraft/client/model/geom/ModelPart;)V to md8ede48$lambda$renderToBuffer$0$3 in playerAnimator-common.mixins.json:BipedEntityModelMixin
+[27Sep2023 20:21:29.031] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/Users/nate/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.1.43_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.1.43_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23184!/assets/.mcassetsroot' uses unexpected schema
+[27Sep2023 20:21:29.031] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/Users/nate/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.1.43_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.1.43_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23184!/data/.mcassetsroot' uses unexpected schema
+[27Sep2023 20:21:29.083] [main/INFO] [net.minecraft.data.DataGenerator/]: All providers took: 0 ms
+[27Sep2023 20:21:29.085] [main/INFO] [net.minecraft.data.HashCache/]: Caching: total files: 0, old count: 0, new count: 1, removed stale: 0, written: 0
