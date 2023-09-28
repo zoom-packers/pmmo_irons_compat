@@ -15,8 +15,8 @@ import org.slf4j.Logger;
 @Mod(PMMOSpellBooksCompat.MOD_ID)
 public class PMMOSpellBooksCompat
 {
-    public static final String MOD_ID = "pmmo_irons_compat";
-    private static final Logger LOGGER = LogUtils.getLogger();
+    public static final String MOD_ID = "pmmo_spellbooks_compat";
+    public static final Logger LOGGER = LogUtils.getLogger();
 
     public PMMOSpellBooksCompat()
     {
