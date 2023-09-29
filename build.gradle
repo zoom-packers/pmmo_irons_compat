@@ -186,6 +186,12 @@ dependencies {
 
     // JSON ******************************************************************************************************
     implementation "com.google.code.gson:gson:${gson_version}"
+
+    //MIXIN EXTRAS
+    implementation(annotationProcessor("io.github.llamalad7:mixinextras-common:0.2.0-rc.5"))
+    implementation(jarJar("io.github.llamalad7:mixinextras-forge:0.2.0-rc.5")) {
+        jarJar.ranged(it, "[0.2.0-rc.5,)")
+    }
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.
