@@ -7,14 +7,6 @@ plugins {
     id 'org.spongepowered.mixin' version '0.7.+'
 }
 
-mixin {
-    config "mixins.${mod_id}.json"
-    add sourceSets.main, "mixins.${mod_id}.refmap.json"
-
-    debug.verbose = true
-    debug.export = true
-}
-
 version = mod_version
 group = mod_group_id
 
@@ -143,7 +135,6 @@ repositories {
 
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
-    annotationProcessor "org.spongepowered:mixin:${mixin_version}:processor"
 
     // PROJECT MMO ------
     implementation fg.deobf("curse.maven:pmmo-353935:4760935")
@@ -186,12 +177,6 @@ dependencies {
 
     // JSON ******************************************************************************************************
     implementation "com.google.code.gson:gson:${gson_version}"
-
-    //MIXIN EXTRAS
-    implementation(annotationProcessor("io.github.llamalad7:mixinextras-common:0.2.0-rc.5"))
-    implementation(jarJar("io.github.llamalad7:mixinextras-forge:0.2.0-rc.5")) {
-        jarJar.ranged(it, "[0.2.0-rc.5,)")
-    }
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.
