@@ -4,12 +4,13 @@ import com.mojang.logging.LogUtils;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
+import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.silvertide.pmmo_spellbooks_compat.commands.CmdPmmoSpellBooksRoot;
 import org.slf4j.Logger;
 
 @Mod(PMMOSpellBooksCompat.MOD_ID)
@@ -22,9 +23,6 @@ public class PMMOSpellBooksCompat
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        // Register the commonSetup method for modloading
-        modEventBus.addListener(this::commonSetup);
-
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
 
@@ -32,7 +30,13 @@ public class PMMOSpellBooksCompat
         modEventBus.addListener(this::addCreative);
     }
 
-    private void commonSetup(final FMLCommonSetupEvent event) {}
+    @Mod.EventBusSubscriber(modid=PMMOSpellBooksCompat.MOD_ID, bus=Mod.EventBusSubscriber.Bus.FORGE)
+    public static class CommonSetup {
+        @SubscribeEvent
+        public static void onCommandRegister(RegisterCommandsEvent event) {
+            CmdPmmoSpellBooksRoot.register(event.getDispatcher());
+        }
+    }
 
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {}
