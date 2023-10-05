@@ -1,28 +1,14 @@
 package net.silvertide.pmmo_spellbooks_compat.config.writers;
 
 import com.google.gson.*;
-import com.mojang.authlib.minecraft.client.ObjectMapper;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.JsonOps;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import harmonised.pmmo.api.enums.EventType;
-import harmonised.pmmo.api.enums.ModifierDataType;
-import harmonised.pmmo.api.enums.ReqType;
-import harmonised.pmmo.config.codecs.CodecTypes;
-import harmonised.pmmo.config.codecs.ObjectData;
-import harmonised.pmmo.config.codecs.VeinData;
-import harmonised.pmmo.core.Core;
-import harmonised.pmmo.core.nbt.LogicEntry;
-import harmonised.pmmo.features.autovalues.AutoValues;
 import io.redspace.ironsspellbooks.api.registry.SpellRegistry;
 import io.redspace.ironsspellbooks.api.spells.AbstractSpell;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.storage.LevelResource;
-import net.minecraftforge.fml.LogicalSide;
-import net.silvertide.pmmo_spellbooks_compat.PMMOSpellBooksCompat;
-import net.silvertide.pmmo_spellbooks_compat.enums.ObjectType;
 
 
 import java.io.IOException;
@@ -31,7 +17,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class PackGenerator {
     public static final String PACKNAME = "pmmo_irons_compat_pack";
@@ -64,7 +49,7 @@ public class PackGenerator {
             String spellname = spell.getSpellId().substring(index+1);
             Path finalPath = filepath.resolve("data/pmmo_spellbooks_compat/spells");
             finalPath.toFile().mkdirs();
-            String defaultValue = "{\"requirements\":{\"default\":[]},\"sources\":[\"scroll\",\"spellbook\",\"sword\"]}";
+            String defaultValue = "{\"requirements\":{\"0\":[]},\"sources\":[\"scroll\",\"spellbook\",\"sword\"],\"replace\": true}";
             try {
                 Files.writeString(
                         finalPath.resolve(spellname+".json"),
