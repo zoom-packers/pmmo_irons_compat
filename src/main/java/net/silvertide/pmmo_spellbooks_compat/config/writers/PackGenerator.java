@@ -29,9 +29,6 @@ public class PackGenerator {
         //create the filepath for our datapack.  this will do nothing if already created
         Path filepath = server.getWorldPath(LevelResource.DATAPACK_DIR).resolve(PACKNAME);
         filepath.toFile().mkdirs();
-        /* checks for existence of the pack.mcmeta.  This will:
-         * 1. create a new file if not present, using the disabler setting
-         * 2. overwrite the existing file if the disabler setting conflicts*/
         Path packPath = filepath.resolve("pack.mcmeta");
         try {
             Files.writeString(
@@ -49,7 +46,7 @@ public class PackGenerator {
             String spellname = spell.getSpellId().substring(index+1);
             Path finalPath = filepath.resolve("data/pmmo_spellbooks_compat/spells");
             finalPath.toFile().mkdirs();
-            String defaultValue = "{\"requirements\":{\"0\":[]},\"sources\":[\"scroll\",\"spellbook\",\"sword\"],\"replace\": true}";
+            String defaultValue = "{\"requirements\":{\"1\":{}},\"default_requirements\":{},\"sources\":[\"scroll\",\"spellbook\",\"sword\"],\"replace\": true}";
             try {
                 Files.writeString(
                         finalPath.resolve(spellname+".json"),

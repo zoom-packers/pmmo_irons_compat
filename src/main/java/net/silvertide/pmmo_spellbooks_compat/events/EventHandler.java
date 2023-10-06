@@ -2,8 +2,11 @@ package net.silvertide.pmmo_spellbooks_compat.events;
 
 import io.redspace.ironsspellbooks.api.events.SpellCastEvent;
 import io.redspace.ironsspellbooks.api.events.SpellHealEvent;
+import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.protocol.game.ClientboundSetActionBarTextPacket;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.event.AddReloadListenerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -12,6 +15,7 @@ import net.silvertide.pmmo_spellbooks_compat.PMMOSpellBooksCompat;
 import net.silvertide.pmmo_spellbooks_compat.config.codecs.SpellRequirement;
 import net.silvertide.pmmo_spellbooks_compat.config.codecs.SpellRequirements;
 import net.silvertide.pmmo_spellbooks_compat.util.CompatUtil;
+import net.silvertide.pmmo_spellbooks_compat.util.SpellCastResult;
 
 import java.util.Map;
 
@@ -34,12 +38,15 @@ public class EventHandler {
     public static void onSpellCast(SpellCastEvent spellCastEvent) {
         if (spellCastEvent.isCanceled()) return;
         Map<ResourceLocation, SpellRequirement> spellReqMap = SpellRequirements.DATA_LOADER.getData();
-        PMMOSpellBooksCompat.LOGGER.info("Spell Cast!");
         if(!spellReqMap.isEmpty()) {
-            PMMOSpellBooksCompat.LOGGER.info("Not Empty!");
             ResourceLocation spellResourceLocation = CompatUtil.getCompatResourceLocation(spellCastEvent.getSpellId());
             if(spellResourceLocation != null) {
-                PMMOSpellBooksCompat.LOGGER.info(spellReqMap.get(spellResourceLocation).toString());
+                SpellCastResult castResult = CompatUtil.canCastSpell(spellCastEvent, spellReqMap.get(spellResourceLocation));
+                if(!castResult.wasSuccessful()) {
+                    spellCastEvent.setCanceled(true);
+                    ServerPlayer serverPlayer = (ServerPlayer) spellCastEvent.getEntity();
+                    serverPlayer.connection.send(new ClientboundSetActionBarTextPacket(Component.literal("You must be level " + castResult.errorMessage() + " to cast this.").withStyle(ChatFormatting.RED)));
+                }
             }
         }
     }

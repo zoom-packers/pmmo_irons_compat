@@ -1,10 +1,5 @@
 package net.silvertide.pmmo_spellbooks_compat.config.codecs;
 
-import com.google.common.collect.Maps;
-import com.google.common.collect.Sets;
-import net.minecraft.resources.ResourceLocation;
-import net.silvertide.pmmo_spellbooks_compat.PMMOSpellBooksCompat;
-
 import java.util.*;
 
 public class SpellRequirements {
@@ -14,6 +9,14 @@ public class SpellRequirements {
             SpellRequirements::processSpellRequirements);
 
     public static SpellRequirement processSpellRequirements(final List<SpellRequirement> raws) {
-        return raws.get(0);
+        // Simple merger function. Takes the latest SpellRequirement with replace = true;
+        SpellRequirement result = raws.get(0);
+        if(raws.size() > 1){
+            for(int i = 1; i < raws.size(); i++) {
+                SpellRequirement curr = raws.get(i);
+                if(curr.replace()) result = curr;
+            }
+        }
+        return result;
     }
 }
