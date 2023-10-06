@@ -1,22 +1,20 @@
 package net.silvertide.pmmo_spellbooks_compat;
 
 import com.mojang.logging.LogUtils;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.AddReloadListenerEvent;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.RegisterCommandsEvent;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.silvertide.pmmo_spellbooks_compat.commands.CmdPmmoSpellBooksRoot;
-import net.silvertide.pmmo_spellbooks_compat.config.codecs.SpellRequirements;
 import org.slf4j.Logger;
 
+//TODO: Add config for xp gain from healing
+//TODO: Add hover text to scrolls
 @Mod(PMMOSpellBooksCompat.MOD_ID)
 public class PMMOSpellBooksCompat {
     public static final String MOD_ID = "pmmo_spellbooks_compat";
