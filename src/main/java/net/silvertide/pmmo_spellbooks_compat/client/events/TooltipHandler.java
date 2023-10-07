@@ -48,7 +48,7 @@ public class TooltipHandler {
     }
 
     private static void addCastRequirementTooltip(ItemTooltipEvent event, Map<String, Integer> reqs) {
-        event.getToolTip().add(Component.literal("CAST"));
+        event.getToolTip().add(Component.literal("To Cast"));
         for (Map.Entry<String, Integer> req : reqs.entrySet()) {
             event.getToolTip().add(Component.translatable("pmmo."+req.getKey()).append(Component.literal(" "+ req.getValue())).setStyle(CoreUtils.getSkillStyle(req.getKey())));
         }
