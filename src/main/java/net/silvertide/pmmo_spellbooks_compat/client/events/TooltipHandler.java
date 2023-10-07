@@ -24,9 +24,7 @@ public class TooltipHandler {
 
     @SubscribeEvent
     public static void onTooltip(ItemTooltipEvent event) {
-
         Player player = event.getEntity();
-
         if(player != null) {
             ItemStack stack = event.getItemStack();
             if(stack.getItem() instanceof Scroll) {
