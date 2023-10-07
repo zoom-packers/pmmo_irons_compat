@@ -43,7 +43,7 @@ public class PackGenerator {
             String spellname = spell.getSpellId().substring(index+1);
             Path finalPath = filepath.resolve("data/pmmo_spellbooks_compat/spells");
             finalPath.toFile().mkdirs();
-            String defaultValue = "{\"requirements\":{\"1\":{}},\"default_requirements\":{},\"sources\":[\"scroll\",\"spellbook\",\"sword\"],\"replace\": true}";
+            String defaultValue = "{\"requirements\":{},\"default_requirements\":{},\"sources\":[\"scroll\",\"spellbook\",\"sword\"],\"replace\": true}";
             try {
                 Files.writeString(
                         finalPath.resolve(spellname+".json"),
