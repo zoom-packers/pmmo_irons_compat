@@ -1,6 +1,6 @@
 package net.silvertide.pmmo_spellbooks_compat.config.codecs;
 
-import java.util.*;
+import java.util.List;
 
 public class SpellRequirements {
     public static final MergeableCodecDataManager<SpellRequirement, SpellRequirement> DATA_LOADER = new MergeableCodecDataManager<>(

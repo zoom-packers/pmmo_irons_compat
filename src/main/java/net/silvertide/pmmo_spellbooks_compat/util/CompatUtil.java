@@ -3,7 +3,9 @@ package net.silvertide.pmmo_spellbooks_compat.util;
 import harmonised.pmmo.api.APIUtils;
 import io.redspace.ironsspellbooks.api.events.SpellCastEvent;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.LivingEntity;
 import net.silvertide.pmmo_spellbooks_compat.PMMOSpellBooksCompat;
+import net.silvertide.pmmo_spellbooks_compat.config.Config;
 import net.silvertide.pmmo_spellbooks_compat.config.codecs.SpellRequirement;
 import org.jetbrains.annotations.Nullable;
 
@@ -21,19 +23,11 @@ public class CompatUtil {
     }
 
     public static SpellCastResult canCastSpell(SpellCastEvent spellCastEvent, SpellRequirement spellRequirement) {
-        String levelString = String.valueOf(spellCastEvent.getSpellLevel());
         //TODO: Check source here once new version of Iron's is out.
-        if(spellRequirement.reqs().containsKey(levelString)) {
-            Map<String, Integer> reqMap = spellRequirement.reqs().get(levelString);
-            for(String skill : reqMap.keySet()) {
-                int requiredLevel = reqMap.get(skill);
-                if(requiredLevel > APIUtils.getLevel(skill, spellCastEvent.getEntity())){
-                    return new SpellCastResult(false, requiredLevel + " " + skill);
-                }
-            }
-        } else if(!spellRequirement.defaultReqs().isEmpty()) {
-            for(String skill : spellRequirement.defaultReqs().keySet()) {
-                int requiredLevel = spellRequirement.defaultReqs().get(skill);
+        Map<String, Integer> requirementMap = spellRequirement.getRequirementMap(spellCastEvent.getSpellLevel());
+        if(requirementMap != null){
+            for(String skill : requirementMap.keySet()) {
+                int requiredLevel = requirementMap.get(skill);
                 if(requiredLevel > APIUtils.getLevel(skill, spellCastEvent.getEntity())){
                     return new SpellCastResult(false, requiredLevel + " " + skill);
                 }
@@ -43,4 +37,13 @@ public class CompatUtil {
     }
 
 
+    public static int getHealXPReward(LivingEntity targetEntity, float healAmount) {
+        float missingLife = targetEntity.getMaxHealth() - targetEntity.getHealth();
+        if(missingLife > 0){
+            float xpReward = Math.min(healAmount, missingLife) * Config.HEAL_XP_REWARD.get();
+            return Math.round(xpReward);
+        } else {
+            return 0;
+        }
+    }
 }

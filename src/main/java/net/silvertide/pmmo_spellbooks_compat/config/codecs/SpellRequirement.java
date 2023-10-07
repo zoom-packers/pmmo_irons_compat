@@ -15,6 +15,17 @@ public record SpellRequirement(boolean replace, Map<String, Map<String, Integer>
             .apply(instance, SpellRequirement::new)
     );
 
+    public Map<String, Integer> getRequirementMap(int spellLevel) {
+        String level = String.valueOf(spellLevel);
+        if(reqs().containsKey(level)) {
+            return reqs().get(level);
+        } else if (!defaultReqs().isEmpty()) {
+            return defaultReqs();
+        } else {
+            return null;
+        }
+    }
+
     public String toString() {
         StringBuilder result = new StringBuilder();
         result.append("replace: ").append(replace()).append("\n");

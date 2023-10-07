@@ -21,9 +21,6 @@ import java.util.*;
 public class PackGenerator {
     public static final String PACKNAME = "pmmo_irons_compat_pack";
     private static final Gson gson = new GsonBuilder().setPrettyPrinting().create();
-    public static boolean applyOverride = false, applyDefaults = false, applyDisabler = false, applySimple = false;
-    public static List<String> namespaceFilter = new ArrayList<>();
-    public static Set<ServerPlayer> players = new HashSet<>();
 
     public static int generatePack(MinecraftServer server) {
         //create the filepath for our datapack.  this will do nothing if already created
@@ -65,24 +62,24 @@ public class PackGenerator {
         return gson.toJson(jsonElement);
     }
 
-    private static record Pack(String description, int format) {
+    private record Pack(String description, int format) {
         public static final Codec<Pack> CODEC = RecordCodecBuilder.create(instance -> instance.group(
                 Codec.STRING.fieldOf("description").forGetter(Pack::description),
                 Codec.INT.fieldOf("pack_format").forGetter(Pack::format)
         ).apply(instance, Pack::new));
     }
-    private static record BlockFilter(Optional<String> namespace, Optional<String> path) {
+    private record BlockFilter(Optional<String> namespace, Optional<String> path) {
         public static final Codec<BlockFilter> CODEC = RecordCodecBuilder.create(instance -> instance.group(
                 Codec.STRING.optionalFieldOf("namespace").forGetter(BlockFilter::namespace),
                 Codec.STRING.optionalFieldOf("path").forGetter(BlockFilter::path)
         ).apply(instance, BlockFilter::new));
     }
-    private static record Filter(List<BlockFilter> block) {
+    private record Filter(List<BlockFilter> block) {
         public static final Codec<Filter> CODEC = RecordCodecBuilder.create(instance -> instance.group(
                 BlockFilter.CODEC.listOf().fieldOf("block").forGetter(Filter::block)
         ).apply(instance, Filter::new));
     }
-    private static record McMeta(Pack pack, Optional<Filter> filter) {
+    private record McMeta(Pack pack, Optional<Filter> filter) {
         public static final Codec<McMeta> CODEC = RecordCodecBuilder.create(instance -> instance.group(
                 Pack.CODEC.fieldOf("pack").forGetter(McMeta::pack),
                 Filter.CODEC.optionalFieldOf("filter").forGetter(McMeta::filter)
