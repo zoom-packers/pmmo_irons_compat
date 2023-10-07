@@ -38,7 +38,7 @@ public class TooltipHandler {
                     if(spellResourceLocation != null) {
                         SpellRequirement spellReq = spellReqMap.get(spellResourceLocation);
                         Map<String, Integer> requirementMap = spellReq.getRequirementMap(spellData.getLevel());
-                        if(requirementMap != null){
+                        if(requirementMap != null && !requirementMap.isEmpty()){
                             addCastRequirementTooltip(event, requirementMap);
                         }
                     }
