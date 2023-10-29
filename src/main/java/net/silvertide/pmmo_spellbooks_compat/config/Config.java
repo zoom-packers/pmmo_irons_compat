@@ -17,7 +17,7 @@ public class Config {
         HEAL_SKILL = BUILDER.define("Heal Skill", "endurance");
         BUILDER.comment("");
         BUILDER.comment("XP awarded to the caster of a spell that heals another player."
-                , "Amount healed is the amount healed multiplied by this number."
+                , "XP given is the amount healed multiplied by this number."
                 , "If you heal a player for 4 life and this is 10 then you would be rewarded with 10*4=40 xp."
                 , "Set to 0 to award no experience for healing another player."
                 , "This xp is not rewarded for healing yourself because PMMO already gives xp for that.");

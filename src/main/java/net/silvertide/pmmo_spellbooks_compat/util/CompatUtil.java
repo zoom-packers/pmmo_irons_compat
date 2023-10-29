@@ -1,7 +1,11 @@
 package net.silvertide.pmmo_spellbooks_compat.util;
 
 import harmonised.pmmo.api.APIUtils;
+import io.redspace.ironsspellbooks.api.events.InscribeSpellEvent;
 import io.redspace.ironsspellbooks.api.events.SpellCastEvent;
+import io.redspace.ironsspellbooks.api.spells.AbstractSpell;
+import io.redspace.ironsspellbooks.api.spells.CastSource;
+import io.redspace.ironsspellbooks.capabilities.spell.SpellData;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.LivingEntity;
 import net.silvertide.pmmo_spellbooks_compat.PMMOSpellBooksCompat;
@@ -9,6 +13,7 @@ import net.silvertide.pmmo_spellbooks_compat.config.Config;
 import net.silvertide.pmmo_spellbooks_compat.config.codecs.SpellRequirement;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.List;
 import java.util.Map;
 
 public class CompatUtil {
@@ -21,19 +26,48 @@ public class CompatUtil {
             return null;
         }
     }
+    @Nullable
+    public static String stringifyCastSource(CastSource castSource){
+        return switch(castSource) {
+            case SWORD -> "sword";
+            case SCROLL -> "scroll";
+            case SPELLBOOK -> "spellbook";
+            default -> null;
+        };
+    }
 
-    public static SpellCastResult canCastSpell(SpellCastEvent spellCastEvent, SpellRequirement spellRequirement) {
-        //TODO: Check source here once new version of Iron's is out.
-        Map<String, Integer> requirementMap = spellRequirement.getRequirementMap(spellCastEvent.getSpellLevel());
-        if(requirementMap != null){
-            for(String skill : requirementMap.keySet()) {
-                int requiredLevel = requirementMap.get(skill);
-                if(requiredLevel > APIUtils.getLevel(skill, spellCastEvent.getEntity())){
-                    return new SpellCastResult(false, requiredLevel + " " + skill);
+    public static SpellEventResult canCastSpell(SpellCastEvent spellCastEvent, SpellRequirement spellRequirement) {
+        List<String> sources = spellRequirement.sources();
+        String sourceString = stringifyCastSource(spellCastEvent.getCastSource());
+        if(sources.size() > 0 && sourceString != null && sources.contains(sourceString)){
+            Map<String, Integer> requirementMap = spellRequirement.getRequirementMap(spellCastEvent.getSpellLevel());
+            if(requirementMap != null) {
+                for(String skill : requirementMap.keySet()) {
+                    int requiredLevel = requirementMap.get(skill);
+                    if(requiredLevel > APIUtils.getLevel(skill, spellCastEvent.getEntity())) {
+                        return new SpellEventResult(false, requiredLevel + " " + skill);
+                    }
                 }
             }
         }
-        return new SpellCastResult(true, "");
+
+        return new SpellEventResult(true, "");
+    }
+
+    public static SpellEventResult canInscribeSpell(InscribeSpellEvent inscribeEvent, SpellRequirement spellRequirement) {
+        if(spellRequirement.sources().contains("inscribe")) {
+            Map<String, Integer> requirementMap = spellRequirement.getRequirementMap(inscribeEvent.getSpellData().getLevel());
+            if(requirementMap != null) {
+                for(String skill : requirementMap.keySet()) {
+                    int requiredLevel = requirementMap.get(skill);
+                    if(requiredLevel > APIUtils.getLevel(skill, inscribeEvent.getEntity())) {
+                        return new SpellEventResult(false, requiredLevel + " " + skill);
+                    }
+                }
+            }
+        }
+
+        return new SpellEventResult(true, "");
     }
 
 
