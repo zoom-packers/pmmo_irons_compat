@@ -37,11 +37,12 @@ public class PMMOSpellBooksCompat {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.COMMON_CONFIG);
-        // Register ourselves for server and other game events we are interested in
+
         this.registerPackets();
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
+
         SpellRequirements.DATA_LOADER.subscribeAsSyncable(CHANNEL, SpellRequirementSyncPacket::new);
     }
     void registerPackets()
