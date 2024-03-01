@@ -2,7 +2,8 @@ package net.silvertide.pmmo_spellbooks_compat.client.events;
 
 import harmonised.pmmo.core.CoreUtils;
 import io.redspace.ironsspellbooks.api.spells.AbstractSpell;
-import io.redspace.ironsspellbooks.capabilities.spell.SpellData;
+import io.redspace.ironsspellbooks.api.spells.ISpellContainer;
+import io.redspace.ironsspellbooks.api.spells.SpellData;
 import io.redspace.ironsspellbooks.item.Scroll;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -30,7 +31,7 @@ public class TooltipHandler {
             if(stack.getItem() instanceof Scroll) {
                 Map<ResourceLocation, SpellRequirement> spellReqMap = SpellRequirementSyncPacket.SYNCED_DATA;
                 if(spellReqMap.size() > 0) {
-                    var spellData = SpellData.getSpellData(stack);
+                    SpellData spellData = ISpellContainer.get(stack).getSpellAtIndex(0);
                     AbstractSpell spellCast = spellData.getSpell();
                     ResourceLocation spellResourceLocation = CompatUtil.getCompatResourceLocation(spellCast.getSpellId());
                     if(spellResourceLocation != null) {
