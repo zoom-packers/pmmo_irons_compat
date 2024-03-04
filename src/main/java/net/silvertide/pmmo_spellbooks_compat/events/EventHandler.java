@@ -35,12 +35,12 @@ public class EventHandler {
 
         // Only trigger xp for healing another entity.
         if(!caster.level().isClientSide()) {
-            int healXP = CompatUtil.getHealXPReward(caster, targetEntity, healEvent.getHealAmount());
-            if(healXP > 0) {
+            float amountHealed = CompatUtil.getAmountHealed(targetEntity, healEvent.getHealAmount());
+            if(amountHealed > 0) {
                 if(targetEntity.getUUID() != caster.getUUID()){
-                    APIUtils.addXp(Config.HEAL_OTHER_SKILL.get(), caster, healXP);
+                    APIUtils.addXp(Config.HEAL_OTHER_SKILL.get(), caster, Math.round(amountHealed*Config.HEAL_OTHER_XP_REWARD.get()));
                 } else {
-                    APIUtils.addXp(Config.HEAL_SELF_SKILL.get(), caster, healXP);
+                    APIUtils.addXp(Config.HEAL_SELF_SKILL.get(), caster, Math.round(amountHealed*Config.HEAL_SELF_XP_REWARD.get()));
                 }
             }
         }
