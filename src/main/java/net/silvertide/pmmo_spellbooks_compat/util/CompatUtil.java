@@ -69,10 +69,15 @@ public class CompatUtil {
     }
 
 
-    public static int getHealXPReward(LivingEntity targetEntity, float healAmount) {
+    public static int getHealXPReward(LivingEntity caster, LivingEntity targetEntity, float healAmount) {
         float missingLife = targetEntity.getMaxHealth() - targetEntity.getHealth();
         if(missingLife > 0){
-            float xpReward = Math.min(healAmount, missingLife) * Config.HEAL_XP_REWARD.get();
+            float xpReward = 0;
+            if(targetEntity.getUUID() != caster.getUUID()) {
+                xpReward = Math.min(healAmount, missingLife) * Config.HEAL_OTHER_XP_REWARD.get();
+            } else {
+                xpReward = Math.min(healAmount, missingLife) * Config.HEAL_SELF_XP_REWARD.get();
+            }
             return Math.round(xpReward);
         } else {
             return 0;
