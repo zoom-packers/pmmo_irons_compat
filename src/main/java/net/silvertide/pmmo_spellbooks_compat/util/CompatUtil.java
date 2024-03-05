@@ -1,16 +1,22 @@
 package net.silvertide.pmmo_spellbooks_compat.util;
 
+import com.google.common.base.Preconditions;
 import harmonised.pmmo.api.APIUtils;
+import harmonised.pmmo.core.Core;
+import harmonised.pmmo.core.CoreUtils;
+import harmonised.pmmo.core.IDataStorage;
 import io.redspace.ironsspellbooks.api.events.InscribeSpellEvent;
 import io.redspace.ironsspellbooks.api.events.SpellCastEvent;
 import io.redspace.ironsspellbooks.api.spells.CastSource;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.silvertide.pmmo_spellbooks_compat.PMMOSpellBooksCompat;
 import net.silvertide.pmmo_spellbooks_compat.config.Config;
 import net.silvertide.pmmo_spellbooks_compat.config.codecs.SpellRequirement;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -68,9 +74,20 @@ public class CompatUtil {
         return new SpellEventResult(true, "");
     }
 
-
     public static float getAmountHealed(LivingEntity targetEntity, float healAmount) {
         float missingLife = targetEntity.getMaxHealth() - targetEntity.getHealth();
         return Math.min(healAmount, missingLife);
+    }
+
+    public static void addXp(String skill, Player player, long change) {
+        Preconditions.checkNotNull(skill);
+        Preconditions.checkNotNull(player);
+
+        Map<String, Long> xpMap = new HashMap<>();
+        xpMap.put(skill, change);
+        CoreUtils.processSkillGroupXP(xpMap);
+
+        IDataStorage data = Core.get(player.level()).getData();
+        xpMap.forEach((key, value) -> data.setXpDiff(player.getUUID(), key, value));
     }
 }

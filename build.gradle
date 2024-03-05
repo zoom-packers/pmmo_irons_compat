@@ -137,7 +137,7 @@ dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 
     // PROJECT MMO ------
-    implementation fg.deobf("curse.maven:pmmo-353935:4760935")
+    implementation fg.deobf("curse.maven:pmmo-353935:${pmmo_version}")
 
     // IRONS SPELLS N SPELLBOOKS **********************************************************************************
     implementation fg.deobf("io.redspace.ironsspellbooks:irons_spellbooks:${minecraft_version}-${irons_spells_version}"){
