@@ -143,6 +143,11 @@ dependencies {
     implementation fg.deobf("io.redspace.ironsspellbooks:irons_spellbooks:${minecraft_version}-${irons_spells_version}"){
         transitive = false
     }
+// FORGE ******************************************************************************************************
+    minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+
+    // MIXINS *****************************************************************************************************
+//    annotationProcessor "org.spongepowered:mixin:${mixin_version}:processor"
 
     // GECKOLIB ***************************************************************************************************
     implementation fg.deobf("software.bernie.geckolib:geckolib-forge-${geckolib_version}")
@@ -155,11 +160,9 @@ dependencies {
     implementation fg.deobf("dev.kosmx.player-anim:player-animation-lib-forge:${player_animator_version}")
 
     // TETRA ******************************************************************************************************
-    compileOnly fg.deobf("se.mickelus.mutil:mutil:${mutil_version}")
-    compileOnly fg.deobf("curse.maven:tetra-${tetra_version}")
-    // If you want to run with tetra in dev comment the above line and uncomment the following 2 lines
-    //runtimeOnly fg.deobf("curse.maven:tetra-${tetra_version}")
-    //implementation fg.deobf("se.mickelus.mutil:mutil:${mutil_version}")
+    //compileOnly fg.deobf("se.mickelus.mutil:mutil:${mutil_version}")
+    implementation fg.deobf("curse.maven:tetra-${tetra_version}")
+    implementation fg.deobf("curse.maven:mutil-351914:4824501")
 
     // JEI ********************************************************************************************************
     compileOnly fg.deobf("mezz.jei:jei-${jei_mc_version}-common-api:${jei_version}")
@@ -174,6 +177,14 @@ dependencies {
     // PATCHOULI **************************************************************************************************
     compileOnly fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}:api")
     runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}")
+
+    // APOTHEOSIS
+    runtimeOnly fg.deobf("curse.maven:placebo-${placebo_version}")
+//    runtimeOnly fg.deobf("curse.maven:apothic-curios-950712:5108914")
+
+    //QOL
+//    runtimeOnly fg.deobf("curse.maven:tslatentitystatus-tes-830420:5011935")
+//    runtimeOnly fg.deobf("curse.maven:mouse-tweaks-60089:4581240")
 
     // JSON ******************************************************************************************************
     implementation "com.google.code.gson:gson:${gson_version}"

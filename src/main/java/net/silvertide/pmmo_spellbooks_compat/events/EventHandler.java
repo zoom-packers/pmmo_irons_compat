@@ -1,9 +1,8 @@
 package net.silvertide.pmmo_spellbooks_compat.events;
 
-import harmonised.pmmo.api.APIUtils;
 import io.redspace.ironsspellbooks.api.events.InscribeSpellEvent;
-import io.redspace.ironsspellbooks.api.events.SpellCastEvent;
 import io.redspace.ironsspellbooks.api.events.SpellHealEvent;
+import io.redspace.ironsspellbooks.api.events.SpellPreCastEvent;
 import io.redspace.ironsspellbooks.api.spells.AbstractSpell;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
@@ -24,7 +23,7 @@ import net.silvertide.pmmo_spellbooks_compat.util.SpellEventResult;
 
 import java.util.Map;
 
-@Mod.EventBusSubscriber(modid= PMMOSpellBooksCompat.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
+@Mod.EventBusSubscriber(modid = PMMOSpellBooksCompat.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class EventHandler {
 
     @SubscribeEvent
@@ -47,17 +46,17 @@ public class EventHandler {
     }
 
     @SubscribeEvent
-    public static void onSpellCast(SpellCastEvent spellCastEvent) {
-        if (spellCastEvent.isCanceled()) return;
+    public static void onSpellCast(SpellPreCastEvent spellPreCastEvent) {
+        if (spellPreCastEvent.isCanceled()) return;
 
         Map<ResourceLocation, SpellRequirement> spellReqMap = SpellRequirements.DATA_LOADER.getData();
         if(!spellReqMap.isEmpty()) {
-            ResourceLocation spellResourceLocation = CompatUtil.getCompatResourceLocation(spellCastEvent.getSpellId());
+            ResourceLocation spellResourceLocation = CompatUtil.getCompatResourceLocation(spellPreCastEvent.getSpellId());
             if(spellResourceLocation != null) {
-                SpellEventResult castResult = CompatUtil.canCastSpell(spellCastEvent, spellReqMap.get(spellResourceLocation));
+                SpellEventResult castResult = CompatUtil.canCastSpell(spellPreCastEvent, spellReqMap.get(spellResourceLocation));
                 if(!castResult.wasSuccessful()) {
-                    spellCastEvent.setCanceled(true);
-                    ServerPlayer serverPlayer = (ServerPlayer) spellCastEvent.getEntity();
+                    spellPreCastEvent.setCanceled(true);
+                    ServerPlayer serverPlayer = (ServerPlayer) spellPreCastEvent.getEntity();
                     serverPlayer.connection.send(new ClientboundSetActionBarTextPacket(Component.literal("You must be level " + castResult.errorMessage() + " to cast this.").withStyle(ChatFormatting.RED)));
                 }
             }
@@ -82,8 +81,6 @@ public class EventHandler {
             }
         }
     }
-
-    //TODO: Add InscribeEventCheck once new Iron's update is out.
 
     @SubscribeEvent
     public static void onAddReloadListeners(AddReloadListenerEvent event)
