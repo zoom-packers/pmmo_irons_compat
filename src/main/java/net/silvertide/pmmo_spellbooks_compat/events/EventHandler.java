@@ -1,6 +1,7 @@
 package net.silvertide.pmmo_spellbooks_compat.events;
 
 import io.redspace.ironsspellbooks.api.events.InscribeSpellEvent;
+import io.redspace.ironsspellbooks.api.events.SpellDamageEvent;
 import io.redspace.ironsspellbooks.api.events.SpellHealEvent;
 import io.redspace.ironsspellbooks.api.events.SpellPreCastEvent;
 import io.redspace.ironsspellbooks.api.spells.AbstractSpell;
@@ -29,17 +30,39 @@ public class EventHandler {
     @SubscribeEvent
     public static void entityHealedEvent(SpellHealEvent healEvent) {
         LivingEntity targetEntity = healEvent.getTargetEntity();
-        Player caster = (Player) healEvent.getEntity();
+        // Check if the caster is a player.
+        var caster = healEvent.getEntity();
+        if (!(caster instanceof Player player)) return;
         if(targetEntity == null) return;
 
         // Only trigger xp for healing another entity.
-        if(!caster.level().isClientSide()) {
+        if(!player.level().isClientSide()) {
             float amountHealed = CompatUtil.getAmountHealed(targetEntity, healEvent.getHealAmount());
             if(amountHealed > 0) {
-                if(targetEntity.getUUID() != caster.getUUID()){
-                    CompatUtil.addXp(Config.HEAL_OTHER_SKILL.get(), caster, Math.round(amountHealed*Config.HEAL_OTHER_XP_REWARD.get()));
+                if(targetEntity.getUUID() != player.getUUID()){
+                    CompatUtil.addXp(Config.HEAL_OTHER_SKILL.get(), player, Math.round(amountHealed*Config.HEAL_OTHER_XP_REWARD.get()));
                 } else {
-                    CompatUtil.addXp(Config.HEAL_SELF_SKILL.get(), caster, Math.round(amountHealed*Config.HEAL_SELF_XP_REWARD.get()));
+                    CompatUtil.addXp(Config.HEAL_SELF_SKILL.get(), player, Math.round(amountHealed*Config.HEAL_SELF_XP_REWARD.get()));
+                }
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void entityDamagedEvent(SpellDamageEvent damageEvent) {
+        LivingEntity targetEntity = damageEvent.getEntity();
+        var caster = damageEvent.getSpellDamageSource().get().getEntity();
+        if (!(caster instanceof Player player)) return;
+        if(targetEntity == null || player == null) return;
+
+        // Only trigger xp for damaging another entity.
+        if(!player.level().isClientSide()) {
+            float amountDealt = damageEvent.getAmount();
+            if(amountDealt > 0) {
+                if(targetEntity.getUUID() != player.getUUID()){
+                    CompatUtil.addXp(Config.DAMAGE_OTHER_SKILL.get(), player, Math.round(amountDealt*Config.DAMAGE_OTHER_XP_REWARD.get()));
+                } else {
+                    CompatUtil.addXp(Config.DAMAGE_SELF_SKILL.get(), player, Math.round(amountDealt*Config.DAMAGE_SELF_XP_REWARD.get()));
                 }
             }
         }

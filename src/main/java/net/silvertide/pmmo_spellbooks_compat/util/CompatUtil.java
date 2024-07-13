@@ -82,11 +82,14 @@ public class CompatUtil {
         Preconditions.checkNotNull(skill);
         Preconditions.checkNotNull(player);
 
-        Map<String, Long> xpMap = new HashMap<>();
-        xpMap.put(skill, change);
-        CoreUtils.processSkillGroupXP(xpMap);
+        var skills = skill.split("\\|");
+        for (String s : skills) {
+            Map<String, Long> xpMap = new HashMap<>();
+            xpMap.put(s, change);
+            CoreUtils.processSkillGroupXP(xpMap);
 
-        IDataStorage data = Core.get(player.level()).getData();
-        xpMap.forEach((key, value) -> data.setXpDiff(player.getUUID(), key, value));
+            IDataStorage data = Core.get(player.level()).getData();
+            xpMap.forEach((key, value) -> data.setXpDiff(player.getUUID(), key, value));
+        }
     }
 }
